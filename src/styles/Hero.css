@@ -1,0 +1,342 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&family=Merriweather:wght@700&display=swap");
+
+/* =====================
+   HERO BASE
+   ===================== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  color: #fff;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(8, 18, 36, 0.95) 0%,
+      rgba(8, 18, 36, 0.85) 35%,
+      rgba(8, 18, 36, 0.4) 65%,
+      rgba(8, 18, 36, 0.15) 100%
+    ),
+    url("../assets/HeroBackground.png");
+
+  background-size: cover;
+  background-position: center right;
+  background-repeat: no-repeat;
+}
+
+/* =====================
+   NAVBAR
+   ===================== */
+.hero-nav {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 10;
+  padding: 1.1rem 0;
+  transition: all 0.3s ease;
+}
+
+.hero-nav.nav-solid {
+  background: rgba(8, 18, 36, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* =====================
+   LOGO
+   ===================== */
+.nav-logo {
+  height: 44px;
+  transform: scale(2);
+  transform-origin: left center;
+   margin-left: -4.0rem;
+}
+
+/* =====================
+   NAV LINKS
+   ===================== */
+.hero-links {
+  display: flex;
+  align-items: center;
+}
+
+.hero-links a {
+  color: #e6e6e6;
+  text-decoration: none;
+  margin-right: 2rem;
+  font-weight: 500;
+}
+
+.hero-links a:hover {
+  color: #ffb15c;
+}
+
+.nav-cta {
+  background: linear-gradient(135deg, #ff8c00, #ff6a00);
+  border: none;
+  padding: 0.55rem 1.3rem;
+  border-radius: 6px;
+  font-weight: 600;
+  color: #fff;
+}
+
+/* =====================
+   HERO CONTENT
+   ===================== */
+.hero-content {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* max-width: 650px; */
+
+  /* add this */
+  align-items: flex-start; /* aligns content to the left */
+  padding-left: 2rem;      /* optional, for spacing from left edge */
+}
+
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-size: 0.9rem;
+  color: #ffb15c;
+  font-weight: 600;
+}
+
+.hero-content h1 {
+  font-family: "Merriweather", serif;
+  font-size: 3.4rem;
+  line-height: 1.15;
+  margin: 1rem 0;
+}
+
+.hero-content p {
+  font-size: 1.1rem;
+  color: #d0d6e0;
+  margin-bottom: 2.4rem;
+  max-width: 560px;
+}
+
+/* =====================
+   BUTTONS
+   ===================== */
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Primary button */
+.primary-btn {
+  background: linear-gradient(135deg, #ff8c00, #ff6a00);
+  border: none;
+  padding: 0.95rem 1.7rem;
+  border-radius: 8px;
+  font-weight: 700;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.primary-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,0.15);
+  transform: skewX(-20deg);
+  transition: all 0.5s ease;
+}
+
+.primary-btn:hover::after {
+  left: 100%;
+}
+
+.primary-btn:hover {
+  transform: scale(1.05); /* subtle pop */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2); /* soft shadow on hover */
+}
+
+/* Secondary button */
+.secondary-btn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  padding: 0.95rem 1.7rem;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.secondary-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,0.1);
+  transform: skewX(-20deg);
+  transition: all 0.5s ease;
+}
+
+.secondary-btn:hover::after {
+  left: 100%;
+}
+
+.secondary-btn:hover {
+  background: rgba(255,255,255,0.05);
+  transform: scale(1.03);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+
+.hero-features {
+  display: flex;
+  align-items: center;
+  font-size: 0.95rem;
+  color: #fff;
+  margin-top: 1.2rem; /* right under buttons */
+  flex-wrap: wrap; /* allows wrap on smaller screens */
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.25); /* chalk effect */
+  font-size: 1.1rem;
+  color: #d0d6e0;
+}
+
+.check {
+  color: #ffa14d; /* chalky orange */
+  font-size: 1.2rem;
+  font-weight: bold;
+  line-height: 1;
+  font-family: "Raleway", sans-serif; /* forces a text font that respects color */
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.25); /* chalky texture */
+}
+
+.separator {
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0 0.75rem;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  /* Navbar */
+  .nav-inner {
+    justify-content: space-between; /* logo left, button/menu right */
+  }
+
+  .hero-links {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .hero-links a {
+    margin-right: 0.5rem;
+    font-size: 0.85rem;
+  }
+
+  .nav-cta {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  .nav-logo {
+    transform: scale(1.5);
+    height: 36px;
+  }
+
+  /* Hero content */
+  .hero-content {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* vertically center */
+    min-height: 100vh;
+    align-items: flex-start;
+  }
+
+  .hero-content h1 {
+    font-size: 2.2rem;
+    line-height: 1.2;
+    margin: 0.8rem 0;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    max-width: 100%;
+  }
+
+  /* Buttons */
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.75rem;
+  }
+
+  .primary-btn,
+  .secondary-btn {
+    width: 100%;
+    text-align: center;
+    font-size: 1rem;
+    padding: 0.85rem 0;
+  }
+
+  /* Features */
+  .hero-features {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+    margin-top: 1rem;
+  }
+
+  .feature {
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .check {
+    font-size: 1.1rem;
+  }
+
+  .separator {
+    display: none; /* cleaner look on mobile */
+  }
+
+  /* Background adjustments */
+  .hero {
+    background-position: center center; /* keep important image visible */
+  }
+}
+
+
+
