@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import '../styles/Contact.css';
+import React, { useState } from "react";
+import "../styles/Contact.css";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
+    name: "",
+    email: "",
+    message: "",
   });
 
   const handleChange = (e) => {
@@ -14,71 +14,77 @@ export default function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    window.location.href = `mailto:tamirphillips@live.com?subject=Contact from ${formData.name}&body=${formData.message}`;
+    window.location.href = `mailto:tamirphillips@live.com?subject=Free Quote Request from ${formData.name}&body=${formData.message}`;
   };
 
   return (
-    <section className="contact" id="contact">
-      <div className="contact-content">
-        <h2 className="contact-title">Let's Connect</h2>
-        <div className="contact-grid">
-          <div className="contact-info">
-            <h3 className="contact-subtitle">Get in Touch</h3>
-            <p className="contact-description">
-              I'm always excited to discuss new projects, creative ideas, or opportunities to be part of your visions. Feel free to reach out for collaborations or just a friendly hello!
-            </p>
-            <div className="contact-details">
-              <div className="contact-item">
-                <i className="fas fa-envelope"></i>
-                <span>tamirphillips@live.com</span>
-              </div>
-              <div className="contact-item">
-                <i className="fas fa-map-marker-alt"></i>
-                <span>Philadelphia, PA</span>
-              </div>
-            </div>
-            <div className="social-links">
-              <a href="#" className="social-link"><i className="fab fa-linkedin"></i></a>
-              <a href="#" className="social-link"><i className="fab fa-github"></i></a>
-              <a href="#" className="social-link"><i className="fab fa-twitter"></i></a>
-            </div>
+    <section className="contact-section" id="contact">
+      <div className="contact-inner">
+
+        {/* LEFT — FREE QUOTE CARD */}
+        <div className="quote-card">
+          <span className="quote-eyebrow">Free Estimate</span>
+          <h2>No-Pressure, Honest Pricing</h2>
+
+          <p>
+            Reach out today for a fast, transparent quote.
+            No upsells. No surprises. Just reliable work done right.
+          </p>
+
+          <ul className="quote-benefits">
+            <li>✓ Local & Trusted</li>
+            <li>✓ Fast Response Time</li>
+            <li>✓ Clear Communication</li>
+            <li>✓ Quality Workmanship</li>
+          </ul>
+
+          <div className="quote-highlight">
+            <span>Same-Day Responses Available</span>
           </div>
-          <form className="contact-form" onSubmit={handleSubmit}>
-            <div className="form-group">
-              <label htmlFor="name">Name</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="email">Email</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="message">Message</label>
-              <textarea
-                id="message"
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                required
-              ></textarea>
-            </div>
-            <button type="submit" className="btn btn-primary">Send Message</button>
-          </form>
         </div>
+
+        {/* RIGHT — CONTACT FORM */}
+        <form className="contact-form" onSubmit={handleSubmit}>
+          <h3>Request Your Free Quote</h3>
+
+          <div className="form-group">
+            <label>Name</label>
+            <input
+              type="text"
+              name="name"
+              required
+              value={formData.name}
+              onChange={handleChange}
+            />
+          </div>
+
+          <div className="form-group">
+            <label>Email</label>
+            <input
+              type="email"
+              name="email"
+              required
+              value={formData.email}
+              onChange={handleChange}
+            />
+          </div>
+
+          <div className="form-group">
+            <label>How can we help?</label>
+            <textarea
+              name="message"
+              rows="4"
+              required
+              value={formData.message}
+              onChange={handleChange}
+            />
+          </div>
+
+          <button type="submit" className="submit-btn">
+            Submit Request →
+          </button>
+        </form>
+
       </div>
     </section>
   );

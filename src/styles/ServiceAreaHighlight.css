@@ -1,0 +1,134 @@
+/* =====================
+   SECTION BASE
+   ===================== */
+.service-highlight {
+  position: relative;
+  width: 100%;
+  min-height: 260px;
+  max-height: 320px;
+
+  display: flex;
+  align-items: center;
+
+  /* Desktop background */
+  background-image: url("../assets/MapBackground.png");
+  background-size: cover;
+  background-position: center right;
+  background-repeat: no-repeat;
+
+  overflow: hidden;
+}
+
+/* =====================
+   MOBILE BACKGROUND IMAGE
+   (hidden on desktop)
+   ===================== */
+.service-highlight-bg {
+  display: none;
+}
+
+/* =====================
+   INNER CONTAINER
+   ===================== */
+.service-highlight-inner {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 5%;
+
+  display: flex;
+  align-items: center;
+}
+
+/* =====================
+   LEFT CONTENT
+   ===================== */
+.service-highlight-content {
+  max-width: 520px;
+  margin-left: -105px;
+}
+
+.service-highlight-content h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #1f3a5f;
+  margin-bottom: 1.4rem;
+}
+
+/* =====================
+   AREA LIST
+   ===================== */
+.area-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.area-list li {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #425d7a;
+  margin-bottom: 0.55rem;
+  padding-left: 1.4rem;
+  position: relative;
+}
+
+.area-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #ff8c00;
+  font-weight: 700;
+}
+
+.area-list .muted {
+  color: #7a8fa8;
+  font-weight: 500;
+}
+
+/* =====================
+   MOBILE FIX (KEY PART)
+   ===================== */
+@media (max-width: 900px) {
+  .service-highlight {
+    min-height: auto;
+    max-height: none;
+
+    background: none; /* disable background-image */
+  }
+
+  .service-highlight-bg {
+    display: block;
+    width: 100%;
+    height: auto;
+
+    object-fit: contain;
+  }
+
+  .service-highlight-inner {
+    position: absolute;
+    inset: 0;
+
+    padding: 1.5rem;
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .service-highlight-content {
+    margin-left: 0;
+    max-width: 100%;
+
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(6px);
+
+    padding: 1.6rem;
+    border-radius: 18px;
+  }
+
+  .service-highlight-content h2 {
+    font-size: 1.6rem;
+  }
+}

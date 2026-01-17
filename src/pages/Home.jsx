@@ -1,7 +1,7 @@
 import React from "react";
 import Hero from "../components/Hero";
 import About from "../components/About";
-import Location from "../components/Location";
+import ServiceAreaHighlight from "../components/ServiceAreaHighlight";
 import Contact from "../components/Contact";
 
 export default function Home() {
@@ -9,7 +9,7 @@ export default function Home() {
     <div>
       <Hero />
       <About />
-      <Location />
+      <ServiceAreaHighlight />
       <Contact />
     </div>
   );
