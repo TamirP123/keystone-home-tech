@@ -1,169 +1,243 @@
-/* =====================
-   SECTION BASE
-   ===================== */
 .contact-section {
   padding: 6rem 1.5rem;
   background: linear-gradient(
-    to bottom,
-    #f6f9ff 0%,
-    #ffffff 100%
+    180deg,
+    #f4f7fb 0%,
+    #eef3f9 100%
   );
 }
 
-/* =====================
-   INNER GRID
-   ===================== */
-.contact-inner {
+/* OUTER CONTAINER */
+.contact-wrapper {
   max-width: 1200px;
   margin: 0 auto;
 
   display: grid;
-  grid-template-columns: 1fr 1.1fr;
-  gap: 3.5rem;
-  align-items: stretch;
+  grid-template-columns: 0.95fr 1.05fr;
+
+  border-radius: 22px;
+  overflow: hidden;
+
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
+
+  box-shadow:
+    0 40px 90px rgba(0, 0, 0, 0.12);
 }
 
 /* =====================
-   FREE QUOTE CARD
+   QUOTE PANEL (FIXED)
    ===================== */
-.quote-card {
-  background: linear-gradient(
-    135deg,
-    #0f2a44 0%,
-    #163b63 100%
-  );
+.quote-panel {
+  position: relative;
+  padding: 4.2rem 4rem;
 
-  color: white;
-  padding: 3rem;
-  border-radius: 28px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(18, 38, 70, 0.95),
+      rgba(14, 32, 60, 0.92)
+    );
 
-  box-shadow: 0 35px 80px rgba(15, 42, 68, 0.25);
-}
+  color: #fff;
 
-.quote-eyebrow {
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-size: 0.8rem;
-  color: #ffb15c;
-  font-weight: 700;
-}
-
-.quote-card h2 {
-  font-size: 2.2rem;
-  font-weight: 800;
-  margin: 0.8rem 0 1.2rem;
-}
-
-.quote-card p {
-  color: #dbe6f3;
-  font-size: 1.05rem;
-  margin-bottom: 2rem;
-}
-
-.quote-benefits {
-  list-style: none;
-  padding: 0;
-  margin-bottom: 2rem;
-}
-
-.quote-benefits li {
-  margin-bottom: 0.6rem;
-  font-weight: 600;
-  color: #ffffff;
-}
-
-.quote-highlight {
-  background: rgba(255, 255, 255, 0.12);
-  padding: 0.9rem 1.2rem;
-  border-radius: 14px;
-  font-weight: 700;
-  color: #ffb15c;
-  text-align: center;
-}
-
-/* =====================
-   CONTACT FORM
-   ===================== */
-.contact-form {
-  background: white;
-  padding: 3rem;
-  border-radius: 28px;
-
-  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.08);
-}
-
-.contact-form h3 {
-  font-size: 1.8rem;
-  font-weight: 800;
-  color: #1f3a5f;
-  margin-bottom: 2rem;
-}
-
-.form-group {
   display: flex;
   flex-direction: column;
-  margin-bottom: 1.4rem;
+  justify-content: flex-start;
 }
 
-.form-group label {
-  font-weight: 600;
-  color: #425d7a;
-  margin-bottom: 0.4rem;
+/* subtle structure line */
+.quote-panel::after {
+  content: "";
+  position: absolute;
+  top: 3.2rem;
+  left: 4rem;
+
+  width: 48px;
+  height: 4px;
+  border-radius: 2px;
+
+  background: linear-gradient(90deg, #ff8c00, #ff6a00);
 }
 
-.form-group input,
-.form-group textarea {
-  padding: 0.75rem 0.9rem;
-  border-radius: 10px;
-  border: 1px solid #d7e1ee;
-  font-size: 1rem;
+/* Eyebrow */
+.quote-eyebrow {
+  margin-top: 2.2rem;
+
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 700;
+
+  color: #ffb347;
 }
 
-.form-group input:focus,
-.form-group textarea:focus {
-  outline: none;
-  border-color: #ff8c00;
-}
-
-/* =====================
-   SUBMIT BUTTON
-   ===================== */
-.submit-btn {
+/* Headline */
+.quote-panel h3 {
   margin-top: 1rem;
-  width: 100%;
-  padding: 0.95rem;
+  margin-bottom: 1.2rem;
+
+  font-size: 2.25rem;
+  font-weight: 800;
+  line-height: 1.15;
+  max-width: 420px;
+}
+
+/* Description */
+.quote-panel p {
+  font-size: 1.05rem;
+  opacity: 0.9;
+  max-width: 380px;
+  margin-bottom: 2.8rem;
+  margin-top: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Phone block */
+.quote-phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+margin-top: auto;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.5rem;
+  font-weight: 800;
+
+  margin-bottom: 3rem;
+}
+
+/* CTA Button */
+.quote-btn {
+  align-self: flex-start;
+margin-top: auto;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1rem 2.6rem;
+  border-radius: 12px;
 
   background: linear-gradient(135deg, #ff8c00, #ff6a00);
-  color: white;
+  color: #fff;
 
-  border: none;
-  border-radius: 12px;
   font-weight: 800;
-  font-size: 1.05rem;
-  cursor: pointer;
+  font-size: 0.95rem;
+  text-decoration: none;
 
-  transition: all 0.3s ease;
+  transition: all 0.25s ease;
 }
 
-.submit-btn:hover {
+.quote-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 15px 35px rgba(255, 140, 0, 0.35);
+  box-shadow: 0 18px 40px rgba(255, 140, 0, 0.45);
+}
+
+
+/* =====================
+   FORM PANEL
+   ===================== */
+.form-panel {
+  padding: 4rem;
+  background: transparent;
+}
+
+.form-panel::after {
+  content: "";
+  position: absolute;
+  top: 3.2rem;
+  right: 4rem;
+
+  width: 48px;
+  height: 4px;
+  border-radius: 2px;
+
+  background: linear-gradient(90deg, #ff8c00, #ff6a00);
+}
+
+.form-panel h3 {
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: #1f3a5f;
+  margin-bottom: 1.8rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+/* INPUTS */
+.form-panel input,
+.form-panel select,
+.form-panel textarea {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  margin-bottom: 1rem;
+
+  border-radius: 9px;
+  border: none;
+  background: #fff;
+
+  font-size: 0.95rem;
+  box-shadow:
+    inset 0 0 0 1px #d9e0ea,
+    0 4px 12px rgba(0, 0, 0, 0.03);
+
+  transition: all 0.2s ease;
+}
+
+.form-panel input:focus,
+.form-panel select:focus,
+.form-panel textarea:focus {
+  outline: none;
+  box-shadow:
+    inset 0 0 0 2px #ff8c00,
+    0 6px 18px rgba(255, 140, 0, 0.15);
+}
+
+.form-panel textarea {
+  min-height: 130px;
+  resize: none;
+}
+
+/* SUBMIT */
+.form-submit {
+  margin-top: 1.4rem;
+
+  background: linear-gradient(135deg, #1f3a5f, #274a78);
+  color: #fff;
+
+  padding: 0.9rem 2.5rem;
+  border-radius: 10px;
+  border: none;
+
+  font-weight: 700;
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+}
+
+.form-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 34px rgba(31, 58, 95, 0.35);
 }
 
 /* =====================
-   RESPONSIVE
+   MOBILE
    ===================== */
 @media (max-width: 900px) {
-  .contact-inner {
+  .contact-wrapper {
     grid-template-columns: 1fr;
   }
 
-  .quote-card,
-  .contact-form {
-    padding: 2.2rem;
+  .quote-panel,
+  .form-panel {
+    padding: 2.6rem;
   }
 
-  .quote-card h2 {
-    font-size: 1.9rem;
+  .quote-btn {
+    width: 100%;
+    text-align: center;
   }
 }

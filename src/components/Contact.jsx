@@ -4,7 +4,9 @@ import "../styles/Contact.css";
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",
+    phone: "",
     email: "",
+    service: "",
     message: "",
   });
 
@@ -12,79 +14,76 @@ export default function Contact() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    window.location.href = `mailto:tamirphillips@live.com?subject=Free Quote Request from ${formData.name}&body=${formData.message}`;
-  };
-
   return (
     <section className="contact-section" id="contact">
-      <div className="contact-inner">
+      <div className="contact-wrapper">
+        {/* LEFT — FREE QUOTE */}
+        <div className="quote-panel">
+  <span className="quote-eyebrow">Free Estimate</span>
 
-        {/* LEFT — FREE QUOTE CARD */}
-        <div className="quote-card">
-          <span className="quote-eyebrow">Free Estimate</span>
-          <h2>No-Pressure, Honest Pricing</h2>
+  <h3>Get a Free Quote Today</h3>
 
-          <p>
-            Reach out today for a fast, transparent quote.
-            No upsells. No surprises. Just reliable work done right.
-          </p>
+  <p>
+    Fast, reliable home services from a trusted local professional.
+    Call or text for quick scheduling.
+  </p>
 
-          <ul className="quote-benefits">
-            <li>✓ Local & Trusted</li>
-            <li>✓ Fast Response Time</li>
-            <li>✓ Clear Communication</li>
-            <li>✓ Quality Workmanship</li>
-          </ul>
+  <div className="quote-phone">
+    📞 <span>(267) 308-4755</span>
+  </div>
 
-          <div className="quote-highlight">
-            <span>Same-Day Responses Available</span>
-          </div>
-        </div>
+  <a href="sms:+12155551234" className="quote-btn">
+    Text for Estimate →
+  </a>
+</div>
+
 
         {/* RIGHT — CONTACT FORM */}
-        <form className="contact-form" onSubmit={handleSubmit}>
-          <h3>Request Your Free Quote</h3>
+        <form className="form-panel">
+          <h3>Contact Form</h3>
 
-          <div className="form-group">
-            <label>Name</label>
+          <div className="form-row">
             <input
               type="text"
               name="name"
-              required
-              value={formData.name}
+              placeholder="Name"
               onChange={handleChange}
+              required
             />
-          </div>
-
-          <div className="form-group">
-            <label>Email</label>
             <input
-              type="email"
-              name="email"
-              required
-              value={formData.email}
+              type="tel"
+              name="phone"
+              placeholder="Phone"
               onChange={handleChange}
             />
           </div>
 
-          <div className="form-group">
-            <label>How can we help?</label>
-            <textarea
-              name="message"
-              rows="4"
-              required
-              value={formData.message}
-              onChange={handleChange}
-            />
-          </div>
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            onChange={handleChange}
+            required
+          />
 
-          <button type="submit" className="submit-btn">
+          <select name="service" onChange={handleChange}>
+            <option value="">Service Needed</option>
+            <option>General Contracting</option>
+            <option>Remodeling</option>
+            <option>Repairs</option>
+            <option>Other</option>
+          </select>
+
+          <textarea
+            name="message"
+            placeholder="Message"
+            onChange={handleChange}
+          />
+
+          <button type="submit" className="form-submit">
             Submit Request →
           </button>
         </form>
-
       </div>
     </section>
   );
