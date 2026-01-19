@@ -1,209 +1,84 @@
-// import React, { useState, useEffect } from "react";
-// import AppBar from "@mui/material/AppBar";
-// import Toolbar from "@mui/material/Toolbar";
-// import Typography from "@mui/material/Typography";
-// import Box from "@mui/material/Box";
-// import { Link, useNavigate } from "react-router-dom";
-// import "../styles/Navbar.css";
-// import SearchDropdown from "./SearchDropdown";
-// import Auth from "../utils/auth";
-// import Menu from "@mui/material/Menu";
-// import MenuItem from "@mui/material/MenuItem";
-// import Button from "@mui/material/Button";
-// import { useMediaQuery } from "@mui/material";
-// import IconButton from "@mui/material/IconButton";
-// import MenuIcon from "@mui/icons-material/Menu";
-// import Drawer from "@mui/material/Drawer";
-// import List from "@mui/material/List";
-// import ListItem from "@mui/material/ListItem";
-// import ListItemText from "@mui/material/ListItemText";
+import React, { useEffect, useState } from "react";
+import {
+  AppBar,
+  Toolbar,
+  IconButton,
+  Drawer,
+  Box,
+  Button,
+} from "@mui/material";
+import { Link } from "react-router-dom";
+import MenuIcon from "@mui/icons-material/Menu";
+import logo from "../assets/Logo.png";
+import "../styles/Hero.css"; // keep SAME CSS
 
-// import { FaUserCircle } from "react-icons/fa";
+export default function Navbar() {
+  const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
 
-// const NavbarComponent = () => {
-//   const [scrolled, setScrolled] = useState(false);
-//   const [anchorEl, setAnchorEl] = useState(null);
-//   const navigate = useNavigate();
-//   const isMobile = useMediaQuery((theme) => theme.breakpoints.down("md"));
-//   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 60);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
-//   useEffect(() => {
-//     const handleScroll = () => {
-//       const isScrolled = window.scrollY > 10;
-//       if (isScrolled !== scrolled) {
-//         setScrolled(isScrolled);
-//       }
-//     };
+  return (
+    <>
+      <AppBar
+        position="fixed"
+        elevation={0}
+        className={`hero-nav ${scrolled ? "nav-solid" : ""}`}
+      >
+        <Toolbar className="nav-inner">
+          {/* LOGO */}
+        <Link to="/" style={{ textDecoration: "none" }}>
 
-//     document.addEventListener("scroll", handleScroll);
-//     return () => {
-//       document.removeEventListener("scroll", handleScroll);
-//     };
-//   }, [scrolled]);
+          <img src={logo} alt="Keystone Home Tech" className="nav-logo" />
+        </Link>
 
-//   const handleAccountClick = (event) => {
-//     setAnchorEl(event.currentTarget);
-//   };
+          {/* RIGHT */}
+          <Box className="nav-right">
+            {/* DESKTOP */}
+            <Box className="hero-links desktop-only">
+              <a href="#services" className="nav-link">Services</a>
 
-//   const handleAccountClose = () => {
-//     setAnchorEl(null);
-//   };
+              <Link to="/about" className="nav-link">
+                About
+              </Link>
 
-//   const handleLogout = () => {
-//     Auth.logout();
-//     handleAccountClose();
-//   };
+              <a href="#area" className="nav-link">Service Area</a>
 
-//   const toggleMobileMenu = () => {
-//     setMobileMenuOpen(!mobileMenuOpen);
-//   };
+              <button className="nav-cta">Request Service</button>
+            </Box>
 
-//   const mobileMenuItems = [
-//     { text: "Bible", path: "/bible" },
-//     { text: "AI Insights", path: "/ask-ai" },
-//     { text: "Learning Map", path: "/learning-map" },
-//   ];
+            {/* MOBILE */}
+            <IconButton className="mobile-only" onClick={() => setOpen(true)}>
+              <MenuIcon sx={{ color: "#fff" }} />
+            </IconButton>
+          </Box>
+        </Toolbar>
+      </AppBar>
 
-//   return (
-//     <AppBar
-//       position="fixed"
-//       className={`navbar ${scrolled ? "scrolled" : ""}`}
-//       elevation={0}
-//     >
-//       <Toolbar className="toolbar">
-//         <Box className="left-section">
-//           <Link to="/" style={{ textDecoration: "none" }}>
-//             <Typography variant="h4" className="navbar-title">
-//               Bible Mentor
-//             </Typography>
-//           </Link>
+      {/* MOBILE DRAWER */}
+      <Drawer anchor="right" open={open} onClose={() => setOpen(false)}>
+        <Box className="mobile-drawer">
+          <a onClick={() => setOpen(false)} href="#services">Services</a>
 
-//           {!isMobile && (
-//             <Box className="navbar-links">
-//               <Link to="/bible" style={{ textDecoration: "none" }}>
-//                 <a href="#" className="nav-link">
-//                   Bible
-//                 </a>
-//               </Link>
-//               <Link to="/ask-ai" style={{ textDecoration: "none" }}>
-//                 <a href="#" className="nav-link">
-//                   Ask AI
-//                 </a>
-//               </Link>
-//               <Link to="/learning-map" style={{ textDecoration: "none" }}>
-//                 <a href="#" className="nav-link">
-//                   Learning Map
-//                 </a>
-//               </Link>
-//             </Box>
-//           )}
-//         </Box>
+          <Link to="/about" onClick={() => setOpen(false)}>
+            About
+          </Link>
 
-//         <div
-//           className={`search-dropdown-container ${
-//             isMobile ? "mobile-search-top" : ""
-//           }`}
-//         >
-//           <SearchDropdown />
-//         </div>
+          <a onClick={() => setOpen(false)} href="#area">Service Area</a>
 
-//         <Box className="right-section">
-//           {isMobile && (
-//             <IconButton
-//               edge="start"
-//               color="inherit"
-//               aria-label="menu"
-//               onClick={toggleMobileMenu}
-//               className="mobile-menu-button"
-//             >
-//               <MenuIcon />
-//             </IconButton>
-//           )}
-
-//           {!isMobile && Auth.loggedIn() ? (
-//             <>
-//               <Button
-//                 className="nav-link account-button"
-//                 onClick={handleAccountClick}
-//                 startIcon={<FaUserCircle />}
-//               >
-//                 Account
-//               </Button>
-//               <Menu
-//                 anchorEl={anchorEl}
-//                 open={Boolean(anchorEl)}
-//                 onClose={handleAccountClose}
-//                 className="account-menu"
-//               >
-//                 <MenuItem
-//                   onClick={handleAccountClose}
-//                   component={Link}
-//                   to="/prayer-requests"
-//                 >
-//                   Prayer Requests
-//                 </MenuItem>
-//                 <MenuItem
-//                   onClick={handleAccountClose}
-//                   component={Link}
-//                   to="/verses"
-//                 >
-//                   My Verses
-//                 </MenuItem>
-//                 <MenuItem onClick={handleLogout}>Logout</MenuItem>
-//               </Menu>
-//             </>
-//           ) : !isMobile ? (
-//             <Link to="/login" style={{ textDecoration: "none" }}>
-//               <a href="#" className="login-link">
-//                 Login
-//               </a>
-//             </Link>
-//           ) : null}
-//         </Box>
-//       </Toolbar>
-
-//       {/* Mobile Menu Drawer */}
-//       <Drawer
-//         anchor="right"
-//         open={mobileMenuOpen}
-//         onClose={toggleMobileMenu}
-//         className="mobile-drawer"
-//       >
-//         <Box className="mobile-menu">
-//           <List>
-//             {mobileMenuItems.map((item) => (
-//               <ListItem
-//                 button
-//                 key={item.text}
-//                 component={Link}
-//                 to={item.path}
-//                 onClick={toggleMobileMenu}
-//               >
-//                 <ListItemText primary={item.text} />
-//               </ListItem>
-//             ))}
-//             {Auth.loggedIn() ? (
-//               <>
-//                 <ListItem button component={Link} to="/prayer-requests">
-//                   <ListItemText primary="Prayer Requests" />
-//                 </ListItem>
-//                 <ListItem button component={Link} to="/verses">
-//                   <ListItemText primary="My Verses" />
-//                 </ListItem>
-//                 <ListItem button onClick={handleLogout}>
-//                   <ListItemText primary="Logout" />
-//                 </ListItem>
-//               </>
-//             ) : (
-//               <ListItem button component={Link} to="/login">
-//                 <ListItemText primary="Login" />
-//               </ListItem>
-//             )}
-//           </List>
-//         </Box>
-//       </Drawer>
-//     </AppBar>
-//   );
-// };
-
-// export default NavbarComponent;
+          <Button
+            variant="contained"
+            className="drawer-cta"
+            onClick={() => setOpen(false)}
+          >
+            Request Service
+          </Button>
+        </Box>
+      </Drawer>
+    </>
+  );
+}
