@@ -6,3 +6,7 @@
   margin-top: -80px;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+

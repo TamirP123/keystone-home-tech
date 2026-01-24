@@ -40,13 +40,11 @@ export default function Navbar() {
           <Box className="nav-right">
             {/* DESKTOP */}
             <Box className="hero-links desktop-only">
-              <a href="#services" className="nav-link">Services</a>
+              <Link to="/#services">Services</Link>
 
               <Link to="/about" className="nav-link">
-                About
+                About Us
               </Link>
-
-              <a href="#area" className="nav-link">Service Area</a>
 
               <button className="nav-cta">Request Service</button>
             </Box>
@@ -65,10 +63,8 @@ export default function Navbar() {
           <a onClick={() => setOpen(false)} href="#services">Services</a>
 
           <Link to="/about" onClick={() => setOpen(false)}>
-            About
+            About Us
           </Link>
-
-          <a onClick={() => setOpen(false)} href="#area">Service Area</a>
 
           <Button
             variant="contained"

@@ -40,14 +40,14 @@ export default function AboutPage() {
           <div className="about-text">
             <h2>Who We Are</h2>
             <p>
-              Keystone Home was founded with one goal in mind — to deliver
-              professional, reliable home services without the frustration
-              homeowners often experience.
+              Keystone Home Tech is a locally owned handyman service providing
+              dependable home repair and installation solutions for homeowners
+              and small property owners. 
             </p>
             <p>
-              From furniture assembly and TV mounting to electrical work and
-              general repairs, every job is handled with attention to detail and
-              respect for your home.
+              We specialize in everyday home projects that help keep your space functional,
+              safe, and comfortable. Whether it's a small repair or a new installation,
+              we approach every job with care and attention to detail.
             </p>
           </div>
 
@@ -70,7 +70,7 @@ export default function AboutPage() {
 
           <div className="why-grid">
             <div className="why-card">
-              <h4>Local & Trusted</h4>
+              <h4>Local & Reliable</h4>
               <p>
                 Proudly serving our local community with reliable, personalized
                 service.
@@ -85,9 +85,9 @@ export default function AboutPage() {
             </div>
 
             <div className="why-card">
-              <h4>Quality Craftsmanship</h4>
+              <h4>Safety-focused Approach</h4>
               <p>
-                No shortcuts — just quality work that lasts.
+                No shortcuts — we prioritize safety for you and your home.
               </p>
             </div>
 
