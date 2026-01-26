@@ -45,8 +45,10 @@ export default function Navbar() {
               <Link to="/about" className="nav-link">
                 About Us
               </Link>
+              <Link to="/service" onClick={() => setOpen(false)}>
 
               <button className="nav-cta">Request Service</button>
+              </Link>
             </Box>
 
             {/* MOBILE */}
@@ -65,6 +67,7 @@ export default function Navbar() {
           <Link to="/about" onClick={() => setOpen(false)}>
             About Us
           </Link>
+          <Link to="/service" onClick={() => setOpen(false)}>
 
           <Button
             variant="contained"
@@ -73,6 +76,7 @@ export default function Navbar() {
           >
             Request Service
           </Button>
+          </Link>
         </Box>
       </Drawer>
     </>
