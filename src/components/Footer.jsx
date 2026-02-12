@@ -19,9 +19,9 @@ export default function Footer() {
         <div className="footer-column">
           <h4>Business Hours</h4>
           <ul className="hours-list">
-            <li><span>Mon - Fri:</span> 8:00 AM - 6:00 PM</li>
-            <li><span>Saturday:</span> 9:00 AM - 4:00 PM</li>
-            <li><span>Sunday:</span> Closed</li>
+            <li><span>Mon - Fri:</span> 3:00 PM - 7:00 PM</li>
+            <li><span>Saturday:</span> 9:00 AM - 6:00 PM</li>
+            <li><span>Sunday:</span> 9:00 AM - 6:00 PM</li>
           </ul>
         </div>
 
