@@ -9,7 +9,7 @@ import {
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
-import logo from "../assets/Logo.png";
+import logo from "../assets/KeystoneLogo.png";
 import "../styles/Hero.css"; // keep SAME CSS
 
 export default function Navbar() {
@@ -52,9 +52,15 @@ export default function Navbar() {
             </Box>
 
             {/* MOBILE */}
-            <IconButton className="mobile-only" onClick={() => setOpen(true)}>
-              <MenuIcon sx={{ color: "#fff" }} />
-            </IconButton>
+           {/* MOBILE HAMBURGER */}
+<IconButton 
+  className="mobile-only" 
+  onClick={() => setOpen(true)}
+  /* Updated color logic: dark if scrolled or if using on a light background */
+  sx={{ color: scrolled ? "#0b1924" : "#1e3a8a" }} 
+>
+  <MenuIcon />
+</IconButton>
           </Box>
         </Toolbar>
       </AppBar>

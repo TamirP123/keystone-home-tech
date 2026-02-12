@@ -210,11 +210,11 @@
    VISIBILITY CONTROLS
    ===================== */
 .desktop-only {
-  display: flex;
+  display: flex !important; /* Force flex for PC */
 }
 
 .mobile-only {
-  display: none;
+  display: none !important; /* Hide on PC */
 }
 
 /* =====================
@@ -255,29 +255,99 @@
   margin-left: clamp(2rem, 6vw, 6rem);
 }
 
+
 /* =====================
-   RESPONSIVE
+   MOBILE REFINE (Fixes)
    ===================== */
+
 @media (max-width: 768px) {
-  .desktop-only {
-    display: none;
-  }
-
-  .mobile-only {
-    display: inline-flex;
-  }
-
-  .nav-logo {
-    transform: scale(1.2);
-    height: 36px;
+  .hero {
+    /* Center the background and add a stronger overlay so text is readable */
+    background: 
+      linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.9) 0%,
+        rgba(255, 255, 255, 0.8) 100%
+      ),
+      url("../assets/HeroBackground.png");
+    background-size: cover;
+    background-position: center;
+    padding-top: 80px; /* Reduced top padding for mobile headers */
   }
 
   .hero-content {
-    max-width: 100%;
-    margin: 0 1.5rem;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    text-align: center; /* Center text for better mobile balance */
+    align-items: center;
+    justify-content: flex-start; /* Start higher up the screen */
   }
 
-  .hero {
-    background-position: center center;
+  .hero-content h1 {
+    font-size: 2.2rem; /* Shrink slightly to avoid awkward line breaks */
+    line-height: 1.2;
+  }
+
+  .hero-content p {
+    margin: 0 auto 2rem auto;
+    font-size: 1rem;
+  }
+
+  /* BUTTONS: Make them full-width for easier tapping */
+  .hero-actions {
+    width: 100%;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .primary-btn, .secondary-btn {
+    width: 100%;
+    padding: 1.2rem; /* Larger tap target */
+  }
+
+  /* FEATURES: Remove vertical pipes and use a clean grid/list */
+  .hero-features {
+    justify-content: center;
+    gap: 0.8rem;
+  }
+
+  .hero-features .separator {
+    display: none; /* Hide the "|" on mobile */
+  }
+
+  .feature {
+    font-size: 0.9rem;
+    background: rgba(255, 255, 255, 0.5);
+    padding: 4px 12px;
+    border-radius: 6px;
+  }
+
+  .desktop-only {
+    display: none !important;
+  }
+
+  .mobile-only {
+    display: inline-flex !important;
+  }
+
+  /* Adjust Logo for Mobile so it doesn't overlap the hamburger */
+  .nav-logo {
+    transform: scale(1.1);
+    margin-left: 10px;
+  }
+
+  /* Ensure the navbar toolbar has enough space */
+  .nav-inner {
+    padding: 0 1rem !important;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+
+/* Extra small devices (iPhone SE, etc) */
+@media (max-width: 380px) {
+  .hero-content h1 {
+    font-size: 1.8rem;
   }
 }
