@@ -1,41 +1,134 @@
+/* =====================
+   FOOTER BASE (Desktop)
+   ===================== */
 .footer {
-  background-color: var(--light-grey);
+  background-color: #0b1924; /* Your deep navy */
   color: #ffffff;
-  padding: 1.5rem 0;
-  position: relative;
-  overflow: hidden;
+  padding: 4rem 2rem 1.5rem 2rem;
+  font-family: 'Raleway', sans-serif;
 }
 
-.footer::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(to right, var(--gold), #ff6b6b, #4ecdc4);
-}
-
-.footer-content {
+.footer-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 2rem;
-  text-align: center;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr; /* Brand gets more space */
+  gap: 3rem;
 }
 
-.footer-title {
+/* HEADINGS */
+.footer-column h4 {
   font-family: 'Merriweather', serif;
-  font-size: 2rem;
-  color: var(--gold);
+  color: #ff8c00; /* Brand Orange */
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.footer-logo {
+  font-family: 'Merriweather', serif;
+  font-size: 1.8rem;
   margin-bottom: 1rem;
 }
 
-.footer-text {
-  font-family: 'Raleway', sans-serif;
-  font-size: 1.1rem;
-  margin-bottom: 2rem;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
+.footer-logo span {
+  color: #ff8c00;
 }
 
+.footer-tagline {
+  color: #94a3b8;
+  line-height: 1.6;
+  max-width: 300px;
+}
+
+/* HOURS & CONTACT LISTS */
+.hours-list {
+  list-style: none;
+  padding: 0;
+}
+
+.hours-list li {
+  margin-bottom: 0.8rem;
+  color: #cbd5e1;
+  display: flex;
+  justify-content: space-between;
+}
+
+.hours-list li span {
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.footer-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 1rem;
+}
+
+.footer-contact-item a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-contact-item a:hover {
+  color: #ff8c00;
+}
+
+.footer-icon {
+  color: #ff8c00;
+}
+
+/* COPYRIGHT BAR */
+.footer-bottom {
+  margin-top: 4rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  font-size: 0.9rem;
+  color: #64748b;
+}
+
+/* =====================
+   MOBILE STYLING
+   ===================== */
+@media (max-width: 768px) {
+  .footer {
+    padding: 3rem 1.5rem 1.5rem 1.5rem;
+    text-align: center;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr; /* Stack everything */
+    gap: 2.5rem;
+  }
+
+  .footer-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-tagline {
+    max-width: 100%;
+  }
+
+  .hours-list {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .footer-column h4::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 2px;
+    background: #ff8c00;
+    margin: 8px auto 0 auto;
+  }
+
+  .footer-contact-item {
+    justify-content: center;
+  }
+}
