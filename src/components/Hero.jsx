@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../styles/Hero.css";
 
 export default function Hero() {
@@ -18,8 +19,16 @@ export default function Hero() {
         </p>
 
         <div className="hero-actions">
-          <button className="primary-btn">Call / Text for Estimate</button>
+          <button href="#contact" className="primary-btn">
+            <a href="#contact" className="primary-btn">
+              Call / Text for Estimate
+            </a>
+            </button>
+
+          <Link to="/service">
           <button className="secondary-btn">Request Service</button>
+          </Link> 
+          
         </div>
 
         <div className="hero-features">

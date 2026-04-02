@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../styles/AboutPage.css";
 
 export default function AboutPage() {
@@ -109,9 +110,11 @@ export default function AboutPage() {
             Get in touch today for a free estimate and fast, friendly service.
           </p>
 
+        <Link to="/service">
           <button className="primary-btn">
             Call / Text for Estimate
           </button>
+        </Link>
         </div>
       </div>
 

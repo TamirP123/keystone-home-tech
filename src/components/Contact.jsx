@@ -32,7 +32,7 @@ export default function Contact() {
     📞 <span>(267) 308-4755</span>
   </div>
 
-  <a href="sms:+12155551234" className="quote-btn">
+  <a href="sms:+12673084755" className="quote-btn">
     Text for Estimate →
   </a>
 </div>
